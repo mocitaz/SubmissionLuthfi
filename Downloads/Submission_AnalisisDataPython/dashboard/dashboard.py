@@ -7,7 +7,6 @@ from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
 
-# Konfigurasi halaman Streamlit
 st.set_page_config(
     page_title="Bike Sharing Analytics Dashboard 🚲",
     page_icon="🚲",
