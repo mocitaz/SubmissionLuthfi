@@ -1,8 +1,14 @@
 # Import dependencies
+import os
+os.system("pip install matplotlib==3.4.3")
+os.system("pip install streamlit==1.3.0")
+os.system("pip install seaborn==0.11.2")
+os.system("pip install plotly==5.4.0")
+os.system("pip install pandas==1.3.3")
+ 
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 from datetime import datetime
