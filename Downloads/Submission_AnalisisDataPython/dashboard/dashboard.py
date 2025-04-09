@@ -1,3 +1,4 @@
+# Import dependencies
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -79,15 +80,19 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Load Data
+# Load Data with caching to optimize performance
 @st.cache_data
 def load_data():
-    day_df = pd.read_csv("data/day.csv")
-    hour_df = pd.read_csv("data/hour.csv")
-    day_df['dteday'] = pd.to_datetime(day_df['dteday'])
-    hour_df['dteday'] = pd.to_datetime(hour_df['dteday'])
-    day_df['temp_celsius'] = day_df['temp'] * 41
-    return day_df, hour_df
+    try:
+        day_df = pd.read_csv("data/day.csv")
+        hour_df = pd.read_csv("data/hour.csv")
+        day_df['dteday'] = pd.to_datetime(day_df['dteday'])
+        hour_df['dteday'] = pd.to_datetime(hour_df['dteday'])
+        day_df['temp_celsius'] = day_df['temp'] * 41
+        return day_df, hour_df
+    except Exception as e:
+        st.error(f"Error loading data: {e}")
+        return None, None
 
 day_df, hour_df = load_data()
 
