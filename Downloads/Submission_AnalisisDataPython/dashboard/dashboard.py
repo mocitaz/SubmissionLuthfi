@@ -84,8 +84,8 @@ st.markdown("""
 @st.cache_data
 def load_data():
     try:
-        day_df = pd.read_csv("data/day.csv")
-        hour_df = pd.read_csv("data/hour.csv")
+        day_df = pd.read_csv("day.csv")
+        hour_df = pd.read_csv("hour.csv")
         day_df['dteday'] = pd.to_datetime(day_df['dteday'])
         hour_df['dteday'] = pd.to_datetime(hour_df['dteday'])
         day_df['temp_celsius'] = day_df['temp'] * 41
