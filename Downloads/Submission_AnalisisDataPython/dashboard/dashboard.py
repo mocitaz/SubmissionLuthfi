@@ -1,11 +1,14 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 import seaborn as sns
+import numpy as np
 import plotly.express as px
 from datetime import datetime
 import warnings
+
+# Ignore warnings to avoid cluttering the output
 warnings.filterwarnings('ignore')
+
 
 st.set_page_config(
     page_title="Bike Sharing Analytics Dashboard 🚲",
